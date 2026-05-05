@@ -63,7 +63,7 @@ This will extract `pcqm4m-v2-train.sdf` in the `datasets/` directory.
 Download the precomputed fingerprint embeddings and place them in the `datasets/` directory:
 
 ```bash
-wget <URL>  # Link to be updated
+wget https://zenodo.org/records/20044253/files/downstream_fingerprint_embeddings.parquet
 ```
 
 The file should be located at `datasets/downstream_fingerprint_embeddings.parquet`.
