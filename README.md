@@ -41,6 +41,8 @@ pip install tensorboard
 
 Run the following steps in order.
 
+> **Tip:** The PCQM4Mv2 download (Step 1), Data Preprocessing (Step 2), and Pretraining (Step 3) can be skipped by downloading the pretrained model weights (`HiFi-Mol_GIN_best.pth`, `HiFi-Mol_GIN_final.pth`) and placing them in the `main/Pretrain/` directory. See [`main/Pretrain/README.md`](Pretrain/README.md) for download links. In that case, still complete the **Fingerprint Embeddings** and **MoleculeNet** downloads in Step 1, then proceed directly to **Step 4**.
+
 ### Step 1. Dataset Download
 
 #### PCQM4Mv2 (Pretraining)
@@ -81,9 +83,9 @@ datasets/
 ├── pcqm4m-v2-train.sdf
 ├── downstream_fingerprint_embeddings.parquet
 └── molecule_datasets/
+    ├── bace/
     ├── bbbp/
-    ├── hiv/
-    ├── tox21/
+    ├── clintox/
     └── ...
 ```
 
@@ -98,27 +100,27 @@ python PCQM4Mv2_preparation.py
 
 ### Step 3. Pretraining
 
-Run the pretraining script to train HiFi-Mol on the preprocessed data. The trained model checkpoints will be saved in the `Pretrain/` directory.
+Run the pretraining script to train HiFi-Mol on the preprocessed data. The trained model checkpoints will be saved in the `main/Pretrain/` directory.
 
 ```bash
 python pretrain.py
 ```
 
-> **Tip:** To skip pretraining, download the pretrained model weights (`HiFi-Mol_GIN_best.pth`, `HiFi-Mol_GIN_final.pth`) and place them in the `Pretrain/` directory. See [`Pretrain/README.md`](Pretrain/README.md) for download links.
-
 ### Step 4. Finetuning
 
 Run the finetuning script to perform downstream property prediction. Use `finetune.py` for classification tasks and `finetune_reg.py` for regression tasks.
 
+> **Note:** For MoleculeNet datasets, only the raw data files are provided. On the first run, hierarchical graph preprocessing will be automatically performed by `main/datasets/molecule_dataset.py`, and the processed data will be saved in the `processed/` folder under each dataset directory (e.g., `datasets/molecule_datasets/bbbp/processed/`). This preprocessing only occurs once.
+
 ```bash
-# Classification tasks (e.g., BBBP, HIV, Tox21, ...)
+# Classification tasks (e.g., BACE, BBBP, Clintox, ...)
 python finetune.py
 
 # Regression tasks (e.g., ESOL, FreeSolv, Lipophilicity)
 python finetune_reg.py
 ```
 
-The finetuned model checkpoints will be saved in `results/HiFi-Mol_last/`.
+The finetuned model checkpoints will be saved in `main/results/HiFi-Mol_last/`.
 
 ## Results
 
