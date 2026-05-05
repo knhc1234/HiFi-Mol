@@ -1,9 +1,15 @@
 # Pretrained Model Weights
 
 Please download the pretrained model weights and place them in this directory (`Pretrain/`).
-Download Link: https://doi.org/10.5281/zenodo.20044252
 
 ## Download
+
+Download Link: https://doi.org/10.5281/zenodo.20044252
+
+```bash
+wget https://zenodo.org/records/20044253/files/HiFi-Mol_GIN_best.pth
+wget https://zenodo.org/records/20044253/files/HiFi-Mol_GIN_final.pth
+```
 
 | File | Description |
 |------|-------------|
