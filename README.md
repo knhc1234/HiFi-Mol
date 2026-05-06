@@ -1,8 +1,6 @@
 # HiFi-Mol
 Multi-View Molecular Representation Learning with Hierarchical Graphs and Contextualized Fingerprints
 
-> **Note:** The code and instructions for Fingerprint Pretraining will be released in a future update.
-
 ## Environments
 
 Our code is tested and supported under the following environment:
