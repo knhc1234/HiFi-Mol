@@ -79,6 +79,8 @@ unzip molecule_datasets.zip -d molecule_datasets/
 ```
 datasets/
 ├── pcqm4m-v2-train.sdf
+├── pcqm4m-v2_dense/
+|   └── pcqm_vocab.json
 ├── downstream_fingerprint_embeddings.parquet
 └── molecule_datasets/
     ├── bace/
