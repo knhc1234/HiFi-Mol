@@ -130,3 +130,12 @@ The evaluation results for each dataset will be saved as a CSV file in the `main
 main/
 └── HiFi-Mol_{dataset_name}.csv
 ```
+
+## Quick Results Visualization
+
+If you simply want to inspect the model's output results without running the preceding steps, you can run `plot_results.py` in the `main/` directory to visualize HiFi-Mol's results:
+
+```bash
+cd main
+python plot_results.py
+```
